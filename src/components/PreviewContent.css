@@ -1,5 +1,19 @@
+#preview {
+  height: 100%;
+  position: relative;
+}
 code {
-	background-color: lightblue;
-	display: block;
-	margin: 10px 0;
+  background-color: lightblue;
+  display: block;
+  margin: 10px 0;
+}
+img {
+  width: 10%;
+  height: auto;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+a {
+  font-size: larger;
 }
