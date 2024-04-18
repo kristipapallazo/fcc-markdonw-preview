@@ -45,16 +45,49 @@ function example() {
 
 function App() {
   const [markedInput, setMarkedInput] = useState(defaultMarkdown);
+  const [cardWidthArr, setCardWidthArr] = useState(["50%", "50%"]);
+
+  const handleWidthChange = (id) => {
+    setCardWidthArr((prev) => {
+      let newArr = [...prev];
+
+      const index = id === "editor" ? 0 : 1;
+      switch (newArr[index]) {
+        case "25%": {
+          newArr = ["50%", "50%"];
+          break;
+        }
+        case "50%": {
+          newArr = id === "editor" ? ["75%", "25%"] : ["25%", "75%"];
+          break;
+        }
+        default: {
+          console.log("defaultWidth");
+        }
+      }
+      return newArr;
+    });
+  };
 
   return (
     <div className="app">
-      <CardLayout id="editor">
+      <CardLayout
+        id="editor"
+        label="Editor"
+        width={cardWidthArr[0]}
+        handleWidthChange={handleWidthChange}
+      >
         <EditorContent
           markedInput={markedInput}
           setMarkedInput={setMarkedInput}
         />
       </CardLayout>
-      <CardLayout id="preview">
+      <CardLayout
+        id="preview"
+        label="Preview"
+        width={cardWidthArr[1]}
+        handleWidthChange={handleWidthChange}
+      >
         <PreviewContent markedInput={markedInput} />
       </CardLayout>
     </div>

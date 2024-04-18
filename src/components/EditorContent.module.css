@@ -1,10 +1,8 @@
 .inputContainer {
-	height: 100%;
-	max-height: 100%;
-	width: 100%;
-	max-width: 100%;
-	background-color: inherit;
-	color: inherit;
-	/* border: 2px solid red; */
-	resize: none;
+  width: 100%;
+  max-width: 100%;
+  background-color: inherit;
+  color: inherit;
+  resize: none;
+  flex: 1;
 }
